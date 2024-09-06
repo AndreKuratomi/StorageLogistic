@@ -1,0 +1,31 @@
+.project/*
+
+# ASP.NET Core
+bin/
+obj/
+*.user
+*.suo
+*.sln.docstates
+*.nupkg
+*.snupkg
+
+# Rider
+.idea/
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+*.tmp
+
+# NuGet
+*.nupkg
+.nuget/
+packages/
+
+# Local environment files
+appsettings*.json
+
+SmallGuide.txt
