@@ -25,7 +25,4 @@ Thumbs.db
 .nuget/
 packages/
 
-# Local environment files
-appsettings*.json
-
 SmallGuide.txt
