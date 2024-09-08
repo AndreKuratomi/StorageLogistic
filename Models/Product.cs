@@ -23,6 +23,10 @@ namespace StorageLogistic.Models
 
         [StringLength(50)]
         public string ProductType { get; set; } = string.Empty;
+
+        // Tracking sales and stock levels:
+        public DateTime? LastSoldDate { get; set; }
+        public int SoldAmount { get; set; }
     }
 }
 
