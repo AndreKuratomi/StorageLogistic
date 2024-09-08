@@ -15,10 +15,16 @@ namespace StorageLogistic.Controllers
             _context = context;
         }
 
+        // GET: Buy/Create
+        public IActionResult Create()
+        {
+            return View();
+        }
+
         // POST: Buy/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("RequestId, Amount")] BuyProductViewModel buyModel)
+        public async Task<IActionResult> Create([Bind("RequestId, Amount")] BuyProduct buyModel)
         {
             if (ModelState.IsValid)
             {
@@ -29,7 +35,7 @@ namespace StorageLogistic.Controllers
                 }
 
                 //  Update product
-                product.Amount += buyModel.amount;
+                product.Amount += buyModel.Amount;
                 product.LastSoldDate = null; //?
 
                 _context.Update(product);
