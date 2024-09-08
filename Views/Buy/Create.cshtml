@@ -1,0 +1,26 @@
+@model StorageLogistic.Models.BuyProduct
+
+@{
+    ViewData["Title"] = "Buy Product";
+}
+
+<h1>Buy Product</h1>
+
+<h4>BuyProduct</h4>
+<hr />
+<form asp-action="Create">
+    <div class="form-group">
+        <label asp-for="RequestId" class="control-label"></label>
+        <input asp-for="RequestId" class="form-control" />
+        <span asp-validation-for="RequestId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Amount" class="control-label"></label>
+        <input asp-for="Amount" class="form-control" />
+        <span asp-validation-for="Amount" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Buy" class="btn btn-primary" />
+    </div>
+</form>
+<a asp-action="Index">Back to List</a>
