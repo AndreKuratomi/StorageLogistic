@@ -22,7 +22,7 @@ public class ProductsController : Controller
         return View(await _context.Products.ToListAsync());
     }
 
-    // GET: Products/Create ???
+    // GET: Products/Create -> display the form for creating a new product.
     public IActionResult Create()
     {
         return View();
@@ -42,7 +42,7 @@ public class ProductsController : Controller
         return View(product);
     }
 
-    // GET: Products/Edit/5
+    // GET: Products/Edit/5 -> display form for this
     public async Task<IActionResult> Edit(int? id)
     {
         if (id == null)
@@ -58,7 +58,7 @@ public class ProductsController : Controller
         return View(product);
     }
 
-    // POST: Products/Edit/5
+    // POST: Products/Edit/5 -> submit form data for edition
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Edit(int id, [Bind("RequestId,ProductName,DateCreated,DateUpdated,Amount,Price,ProductType")] Product product)
@@ -108,7 +108,7 @@ public class ProductsController : Controller
         return View(product);
     }
 
-    // POST: Products/Delete/5
+    // POST: Products/Delete/5 -> submit deletion
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteConfirmed(int id)
