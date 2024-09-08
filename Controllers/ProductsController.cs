@@ -22,6 +22,27 @@ public class ProductsController : Controller
         return View(await _context.Products.ToListAsync());
     }
 
+    // GET: Products/LowStock
+    public async Task<IActionResult> LowStock()
+    {
+        var lowStockProducts = await _context.Products
+                                            .Where(p => p.Amount < 10)
+                                            .ToListAsync();
+
+        return View(lowStockProducts);
+    }
+
+    // GET: Products/Stuck
+    public async Task<IActionResult> Stuck()
+    {
+        var threeMonthsAgo = DateTime.UtcNow.AddMonths(-3);
+        var stuckProducts = await _context.Products
+                                        .Where(p => p.LastSoldDate == null || p.LastSoldDate < threeMonthsAgo)
+                                        .ToListAsync();
+        
+        return View(stuckProducts);
+    }
+
     // GET: Products/Create -> display the form for creating a new product.
     public IActionResult Create()
     {
