@@ -52,7 +52,9 @@ public class ProductsController : Controller
     // POST: Products/Create
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create([Bind("RequestId,ProductName,DateCreated,DateUpdated,Amount,Price,ProductType")] Product product)
+    public async Task<IActionResult> Create([Bind(
+        "RequestId,ProductName,DateCreated,DateUpdated,Amount,Price,ProductType"
+        )] Products product)
     {
         if (ModelState.IsValid)
         {
@@ -82,7 +84,9 @@ public class ProductsController : Controller
     // POST: Products/Edit/5 -> submit form data for edition
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int id, [Bind("RequestId,ProductName,DateCreated,DateUpdated,Amount,Price,ProductType")] Product product)
+    public async Task<IActionResult> Edit(int id, [Bind(
+        "RequestId,ProductName,DateCreated,DateUpdated,Amount,Price,ProductType")] 
+        Products product)
     {
         if (id != product.RequestId)
         {

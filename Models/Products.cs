@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace StorageLogistic.Models
 {
-    public class Product
+    public class Products
     {
         [Key]
         public int RequestId { get; set; }

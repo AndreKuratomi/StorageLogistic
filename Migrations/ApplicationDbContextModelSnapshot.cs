@@ -17,7 +17,7 @@ namespace StorageLogistic.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.8");
 
-            modelBuilder.Entity("StorageLogistic.Models.Product", b =>
+            modelBuilder.Entity("StorageLogistic.Models.Products", b =>
                 {
                     b.Property<int>("RequestId")
                         .ValueGeneratedOnAdd()
@@ -32,6 +32,9 @@ namespace StorageLogistic.Migrations
                     b.Property<DateTime>("DateUpdated")
                         .HasColumnType("TEXT");
 
+                    b.Property<DateTime?>("LastSoldDate")
+                        .HasColumnType("TEXT");
+
                     b.Property<decimal>("Price")
                         .HasColumnType("TEXT");
 
@@ -44,6 +47,9 @@ namespace StorageLogistic.Migrations
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("SoldAmount")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("RequestId");
 
