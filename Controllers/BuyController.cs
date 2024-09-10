@@ -53,9 +53,26 @@ namespace StorageLogistic.Controllers
                     return NotFound();
                 }
 
+                // Store previous amount
+                var previousAmount = product.Amount;
+
                 //  Update product
                 product.Amount -= buyModel.Amount;
-                // product.LastSoldDate = null; //?
+                product.SoldAmount += buyModel.Amount;  // Update the total sold amount
+                product.LastSoldDate = DateTime.Now;  // Set the last sold date
+                product.DateUpdated = DateTime.Now;  // Update the date for last modification
+
+                // Create a history entry for this update
+                var productHistory = new ProductHistory
+                {
+                    ProductId = product.RequestId,
+                    PreviousAmount = previousAmount,
+                    NewAmount = product.Amount,
+                    ChangeDate = DateTime.Now,
+                    ChangedBy = "System"  // You can use the logged-in user if available
+                };
+                
+                _context.ProductHistories.Add(productHistory);
 
                 _context.Update(product);
                 await _context.SaveChangesAsync();

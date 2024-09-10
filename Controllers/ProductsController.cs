@@ -1,7 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SQLitePCL;
+
 using StorageLogistic.Models;
+using StorageLogistic.ViewModels;
+
 using System.Diagnostics; 
 using System.Linq;
 using System.Threading.Tasks;
@@ -32,14 +35,25 @@ public class ProductsController : Controller
             return NotFound();
         }
         
-        var product = await _context.Products.FirstOrDefaultAsync(m => m.RequestId == id);
+        var product = await _context.Products
+            .Include(p => p.ProductHistories.OrderByDescending(h => h.ChangeDate))  // Get the history
+            .FirstOrDefaultAsync(m => m.RequestId == id);
 
         if (product == null)
         {
             return NotFound();
         }
 
-        return View(product);
+        // Get the most recent update
+        var lastUpdate = product.ProductHistories.FirstOrDefault();
+
+        var viewModel = new ProductDetails
+        {
+            Product = product,
+            LastUpdate = lastUpdate  // Pass the most recent update
+        };
+
+        return View(viewModel);
     }
 
     // GET: Products/LowStock

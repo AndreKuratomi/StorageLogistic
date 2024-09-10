@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+
 
 namespace StorageLogistic.Models
 {
@@ -27,6 +29,9 @@ namespace StorageLogistic.Models
         // Tracking sales and stock levels:
         public DateTime? LastSoldDate { get; set; }
         public int SoldAmount { get; set; }
+
+        // History tracking
+        public ICollection<ProductHistory> ProductHistories { get; set; } = new List<ProductHistory>();
     }
 }
 
