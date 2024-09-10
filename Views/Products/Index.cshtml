@@ -8,7 +8,8 @@
 <h1>Products</h1>
 
 <p>
-    <a asp-action="Create">Create New Product</a>
+    <a asp-action="Create" class="btn btn-primary">Create New Product</a>
+    <a asp-action="GeneratePdf" class="btn btn-primary">Generate PDF Report</a>
 </p>
 
 <table class="table">
@@ -46,10 +47,10 @@
                 @Html.DisplayFor(modelItem => item.ProductType)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.RequestId">Edit</a> |
+                <a asp-action="Edit" asp-route-id="@item.RequestId">Edit</a> | @*just for admins*@
                 <a asp-action="Details" asp-route-id="@item.RequestId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.RequestId">Delete</a>
-                @* <a asp-action="Details" asp-route-id="@item.RequestId">View</a> *@
+                <a asp-action="Delete" asp-route-id="@item.RequestId">Delete</a> | @*just for admins*@
+                <a asp-action="Create" asp-controller="Buy" asp-route-id="@item.RequestId">Buy</a>
             </td>
         </tr>
     }

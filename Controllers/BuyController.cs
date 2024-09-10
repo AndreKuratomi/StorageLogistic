@@ -15,10 +15,29 @@ namespace StorageLogistic.Controllers
             _context = context;
         }
 
-        // GET: Buy/Create
-        public IActionResult Create()
+        // CREATE:
+        // GET: Buy/Create/{id}
+        public async Task<IActionResult> Create(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var product = await _context.Products.FindAsync(id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            // Initialize the buy model with the product's request ID
+            var buyModel = new BuyProduct
+            {
+                RequestId = product.RequestId,
+                Amount = 0 // default amount, user will input the amount
+            };
+
+            return View(buyModel);
         }
 
         // POST: Buy/Create
@@ -35,13 +54,13 @@ namespace StorageLogistic.Controllers
                 }
 
                 //  Update product
-                product.Amount += buyModel.Amount;
-                product.LastSoldDate = null; //?
+                product.Amount -= buyModel.Amount;
+                // product.LastSoldDate = null; //?
 
                 _context.Update(product);
                 await _context.SaveChangesAsync();
 
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index), "Products");
             }
             return View(buyModel);
         }
@@ -55,7 +74,7 @@ namespace StorageLogistic.Controllers
 
     }
 
-    public class BuyProductViewModel
+    public class BuyProduct
     {
         public int RequestId { get; set; }
         public int Amount { get; set; }
