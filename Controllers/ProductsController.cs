@@ -16,10 +16,30 @@ public class ProductsController : Controller
         _context = context;
     }
 
+    // PRODUCTS LISTS:
     // GET: Products
     public async Task<IActionResult> Index()
     {
         return View(await _context.Products.ToListAsync());
+    }
+
+    // GET: Products by id:
+
+    public async Task<IActionResult> Details(int? id)
+    {
+        if (id == null)
+        {
+            return NotFound();
+        }
+        
+        var product = await _context.Products.FirstOrDefaultAsync(m => m.RequestId == id);
+
+        if (product == null)
+        {
+            return NotFound();
+        }
+
+        return View(product);
     }
 
     // GET: Products/LowStock
@@ -43,6 +63,8 @@ public class ProductsController : Controller
         return View(stuckProducts);
     }
 
+    // CREATE PRODUCT:
+
     // GET: Products/Create -> display the form for creating a new product.
     public IActionResult Create()
     {
@@ -65,6 +87,7 @@ public class ProductsController : Controller
         return View(product);
     }
 
+    // EDIT PRODUCT BY ID:
     // GET: Products/Edit/5 -> display form for this
     public async Task<IActionResult> Edit(int? id)
     {
@@ -80,7 +103,6 @@ public class ProductsController : Controller
         }
         return View(product);
     }
-
     // POST: Products/Edit/5 -> submit form data for edition
     [HttpPost]
     [ValidateAntiForgeryToken]
@@ -116,6 +138,7 @@ public class ProductsController : Controller
         return View(product);
     }
 
+    // DELETE PRODUCT BY ID:
     // GET: Products/Delete/5
     public async Task<IActionResult> Delete(int? id)
     {
@@ -139,13 +162,16 @@ public class ProductsController : Controller
     public async Task<IActionResult> DeleteConfirmed(int id)
     {
         var product = await _context.Products.FindAsync(id);
+    
         if (product == null)
         {
             return NotFound();
         }
+    
         _context.Products.Remove(product);
         await _context.SaveChangesAsync();
-        return RedirectToAction(nameof(Index));
+    
+        return Redirect("/");
     }
 
     private bool ProductExists(int id)
