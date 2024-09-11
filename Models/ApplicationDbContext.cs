@@ -9,5 +9,7 @@ namespace StorageLogistic.Models
         }
 
         public DbSet<Products> Products { get; set; }
+        public DbSet<ProductHistory> ProductHistories { get; set; }
+
     }
 }

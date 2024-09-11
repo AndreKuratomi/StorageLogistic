@@ -17,6 +17,35 @@ namespace StorageLogistic.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.8");
 
+            modelBuilder.Entity("StorageLogistic.Models.ProductHistory", b =>
+                {
+                    b.Property<int>("HistoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("ChangeDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ChangedBy")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("NewAmount")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("PreviousAmount")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("HistoryId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ProductHistories");
+                });
+
             modelBuilder.Entity("StorageLogistic.Models.Products", b =>
                 {
                     b.Property<int>("RequestId")
@@ -54,6 +83,22 @@ namespace StorageLogistic.Migrations
                     b.HasKey("RequestId");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("StorageLogistic.Models.ProductHistory", b =>
+                {
+                    b.HasOne("StorageLogistic.Models.Products", "Product")
+                        .WithMany("ProductHistories")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("StorageLogistic.Models.Products", b =>
+                {
+                    b.Navigation("ProductHistories");
                 });
 #pragma warning restore 612, 618
         }
