@@ -13,7 +13,7 @@
         <span asp-validation-for="Amount" class="text-danger"></span>
     </div>
     <input type="hidden" asp-for="RequestId" />
-    <br>
+    <p><strong>Disponível em estoque:</strong> @Model.AvailableAmount</p> <!-- Display amount available -->
     <div class="form-group">
         <input type="submit" value="Buy" class="btn btn-primary" />
     </div>

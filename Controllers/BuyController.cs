@@ -34,6 +34,7 @@ namespace StorageLogistic.Controllers
             var buyModel = new BuyProduct
             {
                 RequestId = product.RequestId,
+                AvailableAmount = product.Amount,
                 Amount = 0 // default amount, user will input the amount
             };
 
@@ -57,6 +58,12 @@ namespace StorageLogistic.Controllers
                 var previousAmount = product.Amount;
 
                 //  Update product
+                if (product.Amount < buyModel.Amount)
+                {
+                    ModelState.AddModelError("Amount", "Quantidade a comprar maior que a disponível.");
+                    return View(buyModel);
+                }
+
                 product.Amount -= buyModel.Amount;
                 product.SoldAmount += buyModel.Amount;  // Update the total sold amount
                 product.LastSoldDate = DateTime.Now;  // Set the last sold date
@@ -95,5 +102,6 @@ namespace StorageLogistic.Controllers
     {
         public int RequestId { get; set; }
         public int Amount { get; set; }
+        public int AvailableAmount { get; set; }
     }
 }
