@@ -29,7 +29,7 @@ This application uses the language <strong>[C#](https://dotnet.microsoft.com/pt-
 
 - The code versioning <b>[Git](https://git-scm.com/downloads)</b>.
 
-- A <b>code editor</b>, also known as <b>IDE</b>. For instance, <strong>[Visual Studio Code (VSCode)](https://code.visualstudio.com/)</strong>.
+- A <b>code editor</b>, also known as <b>IDE</b>, <strong>[Visual Studio Code (VSCode)](https://code.visualstudio.com/)</strong>.
 
 - The programming language <strong>[C#](https://dotnet.microsoft.com/pt-br/download/)</strong>.
 
