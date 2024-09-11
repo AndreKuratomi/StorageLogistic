@@ -1,6 +1,6 @@
 @using StorageLogistic.ViewModels
 
-<h1>Product Details</h1>
+<h1>Detalhes do produto</h1>
 
 @if (Model?.Product != null)
 {
@@ -26,11 +26,12 @@
 }
 else
 {
-    <p>No product details available.</p>
+    <p>Sem detalhes disponíveis!</p>
 }
 
+<br>
 
-<h3>Last Stock Update</h3>
+<h2>Última atualização de estoque</h2>
 
 @if (Model?.LastUpdate != null)
 {
@@ -43,9 +44,9 @@ else
 }
 else
 {
-    <p>No recent updates available.</p>
+    <p>Sem atualizações</p>
 }
 
 <p>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Voltar</a>
 </p>

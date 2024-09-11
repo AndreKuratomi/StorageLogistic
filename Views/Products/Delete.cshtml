@@ -4,12 +4,11 @@
     ViewData["Title"] = "Delete Product";
 }
 
-<h1>Delete Product</h1>
+<h1>Deletar produto</h1>
 
-<h4>Product</h4>
+<h4>Produto</h4>
 <hr />
 <div>
-    <h4>Are you sure you want to delete this?</h4>
     <div>
         <h4>@Model.ProductName</h4>
         <dl class="row">
@@ -34,9 +33,12 @@
         </dl>
     </div>
 
+    <br>
+
+    <h4>Confirma a operação?</h4>
     <form asp-action="Delete" method="post">
         <input type="hidden" asp-for="RequestId" />
         <input type="submit" value="Delete" class="btn btn-danger" />
-        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
     </form>
 </div>

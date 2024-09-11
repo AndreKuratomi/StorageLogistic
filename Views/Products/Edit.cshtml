@@ -4,9 +4,9 @@
     ViewData["Title"] = "Edit Product";
 }
 
-<h1>Edit Product</h1>
+<h1>Editar produto</h1>
 
-<h4>Product</h4>
+<h4>Produto</h4>
 <hr />
 <form asp-action="Edit">
     <input type="hidden" asp-for="RequestId" />
@@ -30,8 +30,10 @@
         <input asp-for="ProductType" class="form-control" />
         <span asp-validation-for="ProductType" class="text-danger"></span>
     </div>
+    <br>
     <div class="form-group">
         <input type="submit" value="Save" class="btn btn-primary" />
     </div>
 </form>
-<a asp-action="Index">Back to List</a>
+<br>
+<a asp-action="Index">Voltar</a>
