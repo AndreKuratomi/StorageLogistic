@@ -11,7 +11,7 @@
 ## Translations
 
 - [Português brasileiro / Brazilian portuguese](https://github.com/AndreKuratomi/StorageLogistic)
-- [English](./.multilingual_readmes/README_en-uk.md)
+- [English](./README_en-uk.md)
 
 <br>
 
