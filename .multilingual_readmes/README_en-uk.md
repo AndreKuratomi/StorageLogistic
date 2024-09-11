@@ -43,7 +43,7 @@ git clone https://github.com/AndreKuratomi/StorageLogistic.git
 
 WINDOWS:
 
-Obs: In case of any mistake similar to this one: 
+Obs: In case of any error message similar to this one: 
 
 ```
 unable to access 'https://github.com/AndreKuratomi/StorageLogistic.git/': SSL certificate problem: self-signed certificate in certificate chain
