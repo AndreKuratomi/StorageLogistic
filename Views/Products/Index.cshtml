@@ -9,7 +9,6 @@
 
 <p>
     <a asp-action="Create" class="btn btn-primary">Create New Product</a>
-    <a asp-action="GeneratePdf" class="btn btn-primary">Generate PDF Report</a>
 </p>
 
 <table class="table">
@@ -56,3 +55,10 @@
     }
     </tbody>
 </table>
+
+<p>
+    <a href="/PdfReports/ProductsInStorage" class="btn btn-info" target="_blank">Download Products in Storage Report</a>
+    <a href="/PdfReports/LowStockProducts" class="btn btn-info" target="_blank">Download Low Stock Report</a>
+    <a href="/PdfReports/StorageIncomesAndOutcomes" class="btn btn-info" target="_blank">Download Storage Operations Report</a>
+    <a href="/PdfReports/StuckProducts"  class="btn btn-info" target="_blank">Download Stuck Products Report</a>
+</p>
