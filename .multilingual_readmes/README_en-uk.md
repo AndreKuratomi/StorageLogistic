@@ -2,7 +2,7 @@
 
 - [Translations](#translations)
 - [About](#about)
-- [Instalation](#instalation)
+- [Installation](#installation)
 - [References](#references)
 - [Terms of use](#terms-of-use)
 
@@ -10,26 +10,26 @@
 
 ## Translations
 
-- [Português brasileiro / Brazilian portuguese](./.multilingual_readmes/README_pt-br.md)
-- [English](https://github.com/AndreKuratomi/StorageLogistic)
+- [Português brasileiro / Brazilian portuguese](https://github.com/AndreKuratomi/StorageLogistic)
+- [English](./README_en-uk.md)
 
 <br>
 
 ## About
 
-<p>the application <b>StorageLogistic</b> is purposed to be a simple products storage base, with products register, manipulation and creation of PDF reports. This application used the <b>MVC</b> pattern.
+<p>The application <b>StorageLogistic</b> is purposed to be a simple products storage base, with products register, manipulation and creation of PDF reports. This application uses the <b>MVC</b> pattern.
 
 This application uses the language <strong>[C#](https://dotnet.microsoft.com/pt-br/download/)</strong>, its framework <strong>[dotnet](https://dotnet.microsoft.com/pt-br/download/)</strong> and the database <strong>[SQLite3](https://docs.python.org/3/library/sqlite3.html)</strong>.</p>
 
 <br>
 
-## Instalation:
+## Installation:
 
 <h3>0. It is first necessary to have instaled the following devices:</h3>
 
 - The code versioning <b>[Git](https://git-scm.com/downloads)</b>.
 
-- A <b>code editor</b>, also known as <b>IDE</b>. For instance, <strong>[Visual Studio Code (VSCode)](https://code.visualstudio.com/)</strong>.
+- A <b>code editor</b>, also known as <b>IDE</b>, <strong>[Visual Studio Code (VSCode)](https://code.visualstudio.com/)</strong>.
 
 - The programming language <strong>[C#](https://dotnet.microsoft.com/pt-br/download/)</strong>.
 
@@ -43,7 +43,7 @@ git clone https://github.com/AndreKuratomi/StorageLogistic.git
 
 WINDOWS:
 
-Obs: In case of any mistake similar to this one: 
+Obs: In case of any error message similar to this one: 
 
 ```
 unable to access 'https://github.com/AndreKuratomi/StorageLogistic.git/': SSL certificate problem: self-signed certificate in certificate chain

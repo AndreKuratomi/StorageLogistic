@@ -10,14 +10,14 @@
 
 ## Traduções
 
-- [English / Inglês](/.multilingual_readmes/README.md)
+- [English / Inglês](./.multilingual_readmes/README_en-uk.md)
 - [Português brasileiro / Brazilian portuguese](https://github.com/AndreKuratomi/StorageLogistic/)
 
 <br>
 
 ## Sobre
 
-<p>A aplicação <b>StorageLogistic</b> se propõe a ser uma base simple de controle de estoque de produtos, possibulitando cadastro, manipulação e geração de relatórios em PDF. Esta aplicação utiliza o padrão <b>MVC</b>.
+<p>A aplicação <b>StorageLogistic</b> se propõe a ser uma base simples de controle de estoque de produtos, possibulitando cadastro, manipulação e geração de relatórios em PDF. Esta aplicação utiliza o padrão <b>MVC</b>.
 
 Esta aplicação utiliza a linguagem <strong>[C#](https://dotnet.microsoft.com/pt-br/download/)</strong>, seu framework <strong>[dotnet](https://dotnet.microsoft.com/pt-br/download/)</strong> e o banco de dados <strong>[SQLite3](https://docs.python.org/3/library/sqlite3.html)</strong>.</p>
 

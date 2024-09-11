@@ -27,5 +27,3 @@ packages/
 
 SmallGuide.txt
 
-Migrations/*
-!Migrations/ApplicationDbContextModelSnapshot.cs
