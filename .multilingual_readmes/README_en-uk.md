@@ -10,8 +10,8 @@
 
 ## Translations
 
-- [Português brasileiro / Brazilian portuguese](./.multilingual_readmes/README_pt-br.md)
-- [English](https://github.com/AndreKuratomi/StorageLogistic)
+- [Português brasileiro / Brazilian portuguese](https://github.com/AndreKuratomi/StorageLogistic)
+- [English](./.multilingual_readmes/README_en-uk.md)
 
 <br>
 
