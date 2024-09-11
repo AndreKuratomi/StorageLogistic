@@ -15,10 +15,29 @@ namespace StorageLogistic.Controllers
             _context = context;
         }
 
-        // GET: Buy/Create
-        public IActionResult Create()
+        // CREATE:
+        // GET: Buy/Create/{id}
+        public async Task<IActionResult> Create(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var product = await _context.Products.FindAsync(id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            // Initialize the buy model with the product's request ID
+            var buyModel = new BuyProduct
+            {
+                RequestId = product.RequestId,
+                Amount = 0 // default amount, user will input the amount
+            };
+
+            return View(buyModel);
         }
 
         // POST: Buy/Create
@@ -34,14 +53,31 @@ namespace StorageLogistic.Controllers
                     return NotFound();
                 }
 
+                // Store previous amount
+                var previousAmount = product.Amount;
+
                 //  Update product
-                product.Amount += buyModel.Amount;
-                product.LastSoldDate = null; //?
+                product.Amount -= buyModel.Amount;
+                product.SoldAmount += buyModel.Amount;  // Update the total sold amount
+                product.LastSoldDate = DateTime.Now;  // Set the last sold date
+                product.DateUpdated = DateTime.Now;  // Update the date for last modification
+
+                // Create a history entry for this update
+                var productHistory = new ProductHistory
+                {
+                    ProductId = product.RequestId,
+                    PreviousAmount = previousAmount,
+                    NewAmount = product.Amount,
+                    ChangeDate = DateTime.Now,
+                    ChangedBy = "System"  // You can use the logged-in user if available
+                };
+                
+                _context.ProductHistories.Add(productHistory);
 
                 _context.Update(product);
                 await _context.SaveChangesAsync();
 
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index), "Products");
             }
             return View(buyModel);
         }
@@ -55,7 +91,7 @@ namespace StorageLogistic.Controllers
 
     }
 
-    public class BuyProductViewModel
+    public class BuyProduct
     {
         public int RequestId { get; set; }
         public int Amount { get; set; }

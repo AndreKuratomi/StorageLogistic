@@ -1,7 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SQLitePCL;
+
 using StorageLogistic.Models;
+using StorageLogistic.ViewModels;
+
 using System.Diagnostics; 
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,10 +19,41 @@ public class ProductsController : Controller
         _context = context;
     }
 
+    // PRODUCTS LISTS:
     // GET: Products
     public async Task<IActionResult> Index()
     {
         return View(await _context.Products.ToListAsync());
+    }
+
+    // GET: Products by id:
+
+    public async Task<IActionResult> Details(int? id)
+    {
+        if (id == null)
+        {
+            return NotFound();
+        }
+        
+        var product = await _context.Products
+            .Include(p => p.ProductHistories.OrderByDescending(h => h.ChangeDate))  // Get the history
+            .FirstOrDefaultAsync(m => m.RequestId == id);
+
+        if (product == null)
+        {
+            return NotFound();
+        }
+
+        // Get the most recent update
+        var lastUpdate = product.ProductHistories.FirstOrDefault();
+
+        var viewModel = new ProductDetails
+        {
+            Product = product,
+            LastUpdate = lastUpdate  // Pass the most recent update
+        };
+
+        return View(viewModel);
     }
 
     // GET: Products/LowStock
@@ -43,6 +77,8 @@ public class ProductsController : Controller
         return View(stuckProducts);
     }
 
+    // CREATE PRODUCT:
+
     // GET: Products/Create -> display the form for creating a new product.
     public IActionResult Create()
     {
@@ -52,7 +88,9 @@ public class ProductsController : Controller
     // POST: Products/Create
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create([Bind("RequestId,ProductName,DateCreated,DateUpdated,Amount,Price,ProductType")] Product product)
+    public async Task<IActionResult> Create([Bind(
+        "RequestId,ProductName,DateCreated,DateUpdated,Amount,Price,ProductType"
+        )] Products product)
     {
         if (ModelState.IsValid)
         {
@@ -63,6 +101,7 @@ public class ProductsController : Controller
         return View(product);
     }
 
+    // EDIT PRODUCT BY ID:
     // GET: Products/Edit/5 -> display form for this
     public async Task<IActionResult> Edit(int? id)
     {
@@ -78,11 +117,12 @@ public class ProductsController : Controller
         }
         return View(product);
     }
-
     // POST: Products/Edit/5 -> submit form data for edition
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int id, [Bind("RequestId,ProductName,DateCreated,DateUpdated,Amount,Price,ProductType")] Product product)
+    public async Task<IActionResult> Edit(int id, [Bind(
+        "RequestId,ProductName,DateCreated,DateUpdated,Amount,Price,ProductType")] 
+        Products product)
     {
         if (id != product.RequestId)
         {
@@ -112,6 +152,7 @@ public class ProductsController : Controller
         return View(product);
     }
 
+    // DELETE PRODUCT BY ID:
     // GET: Products/Delete/5
     public async Task<IActionResult> Delete(int? id)
     {
@@ -135,13 +176,16 @@ public class ProductsController : Controller
     public async Task<IActionResult> DeleteConfirmed(int id)
     {
         var product = await _context.Products.FindAsync(id);
+    
         if (product == null)
         {
             return NotFound();
         }
+    
         _context.Products.Remove(product);
         await _context.SaveChangesAsync();
-        return RedirectToAction(nameof(Index));
+    
+        return Redirect("/");
     }
 
     private bool ProductExists(int id)

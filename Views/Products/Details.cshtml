@@ -1,0 +1,51 @@
+@using StorageLogistic.ViewModels
+
+<h1>Product Details</h1>
+
+@if (Model?.Product != null)
+{
+    <p>
+        <strong>Product Name:</strong> @Model.Product.ProductName <br />
+        <strong>Amount in Stock:</strong> @Model.Product.Amount <br />
+        <strong>Price:</strong> @Model.Product.Price <br />
+        <strong>Product Type:</strong> @Model.Product.ProductType <br />
+        <strong>Total Sold Amount:</strong> @Model.Product.SoldAmount <br />
+        <strong>Last Sold Date:</strong> 
+            @{
+               if (Model.Product.LastSoldDate != null)
+               {
+                <text>@Model.Product.LastSoldDate?.ToString("g")</text>
+               }
+               else
+               {
+                <text>Never Sold</text>
+               }
+            }
+        <br />
+    </p>
+}
+else
+{
+    <p>No product details available.</p>
+}
+
+
+<h3>Last Stock Update</h3>
+
+@if (Model.LastUpdate != null)
+{
+    <p>
+        <strong>Previous Amount:</strong> @Model.LastUpdate.PreviousAmount <br />
+        <strong>New Amount:</strong> @Model.LastUpdate.NewAmount <br />
+        <strong>Updated On:</strong> @Model.LastUpdate.ChangeDate.ToString("g") <br />
+        <strong>Updated By:</strong> @Model.LastUpdate.ChangedBy <br />
+    </p>
+}
+else
+{
+    <p>No recent updates available.</p>
+}
+
+<p>
+    <a asp-action="Index">Back to List</a>
+</p>

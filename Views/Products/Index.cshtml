@@ -1,4 +1,5 @@
-﻿@model IEnumerable<StorageLogistic.Models.Product>
+﻿@model IEnumerable<StorageLogistic.Models.Products>
+
 
 @{
     ViewData["Title"] = "Products";
@@ -7,7 +8,7 @@
 <h1>Products</h1>
 
 <p>
-    <a asp-action="Create">Create New Product</a>
+    <a asp-action="Create" class="btn btn-primary">Create New Product</a>
 </p>
 
 <table class="table">
@@ -45,11 +46,19 @@
                 @Html.DisplayFor(modelItem => item.ProductType)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.RequestId">Edit</a> |
+                <a asp-action="Edit" asp-route-id="@item.RequestId">Edit</a> | @*just for admins*@
                 <a asp-action="Details" asp-route-id="@item.RequestId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.RequestId">Delete</a>
+                <a asp-action="Delete" asp-route-id="@item.RequestId">Delete</a> | @*just for admins*@
+                <a asp-action="Create" asp-controller="Buy" asp-route-id="@item.RequestId">Buy</a>
             </td>
         </tr>
     }
     </tbody>
 </table>
+
+<p>
+    <a href="/PdfReports/ProductsInStorage" class="btn btn-info" target="_blank">Download Products in Storage Report</a>
+    <a href="/PdfReports/LowStockProducts" class="btn btn-info" target="_blank">Download Low Stock Report</a>
+    <a href="/PdfReports/StorageIncomesAndOutcomes" class="btn btn-info" target="_blank">Download Storage Operations Report</a>
+    <a href="/PdfReports/StuckProducts"  class="btn btn-info" target="_blank">Download Stuck Products Report</a>
+</p>
