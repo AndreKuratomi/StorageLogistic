@@ -78,7 +78,7 @@ dotnet restore
 <h3>3. And run the application:</h3>
 
 ```
-dotnet run
+dotnet watch run
 ```
 
 <br>
