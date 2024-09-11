@@ -5,10 +5,10 @@
     ViewData["Title"] = "Products";
 }
 
-<h1>Products</h1>
+<h1>Produtos em estoque</h1>
 
 <p>
-    <a asp-action="Create" class="btn btn-primary">Create New Product</a>
+    <a asp-action="Create" class="btn btn-primary">Cadastrar novo produto</a>
 </p>
 
 <table class="table">
@@ -46,19 +46,20 @@
                 @Html.DisplayFor(modelItem => item.ProductType)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.RequestId">Edit</a> | @*just for admins*@
-                <a asp-action="Details" asp-route-id="@item.RequestId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.RequestId">Delete</a> | @*just for admins*@
-                <a asp-action="Create" asp-controller="Buy" asp-route-id="@item.RequestId">Buy</a>
+                <a asp-action="Edit" asp-route-id="@item.RequestId">Editar</a> | @*just for admins*@
+                <a asp-action="Details" asp-route-id="@item.RequestId">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.RequestId">Deletar</a> | @*just for admins*@
+                <a asp-action="Create" asp-controller="Buy" asp-route-id="@item.RequestId">Simular compra</a>
             </td>
         </tr>
     }
     </tbody>
 </table>
 
+<h2>Gerar relatórios:</h2>
 <p>
-    <a href="/PdfReports/ProductsInStorage" class="btn btn-info" target="_blank">Download Products in Storage Report</a>
-    <a href="/PdfReports/LowStockProducts" class="btn btn-info" target="_blank">Download Low Stock Report</a>
-    <a href="/PdfReports/StorageIncomesAndOutcomes" class="btn btn-info" target="_blank">Download Storage Operations Report</a>
-    <a href="/PdfReports/StuckProducts"  class="btn btn-info" target="_blank">Download Stuck Products Report</a>
+    <a href="/PdfReports/ProductsInStorage" class="btn btn-info" target="_blank">Estoque</a>
+    <a href="/PdfReports/LowStockProducts" class="btn btn-info" target="_blank">Produtos com estoque baixo (<=10)</a>
+    <a href="/PdfReports/StorageIncomesAndOutcomes" class="btn btn-info" target="_blank">Movimentação de estoque</a>
+    <a href="/PdfReports/StuckProducts"  class="btn btn-info" target="_blank">Produtos parados (nunca vendidos)</a>
 </p>

@@ -4,18 +4,21 @@
     ViewData["Title"] = "Buy Product";
 }
 
-<h1>Buy Product</h1>
+<h3>Simular compra</h3>
 
 <form asp-action="Create">
     <div class="form-group">
-        <label asp-for="Amount" class="control-label">Amount</label>
+        <label asp-for="Amount" class="control-label">Digite a quantidade desejada:</label>
         <input asp-for="Amount" class="form-control" />
         <span asp-validation-for="Amount" class="text-danger"></span>
     </div>
     <input type="hidden" asp-for="RequestId" />
+    <br>
     <div class="form-group">
         <input type="submit" value="Buy" class="btn btn-primary" />
     </div>
 </form>
 
-<a asp-action="Index" asp-controller="Products">Back to List</a>
+<br>
+
+<a asp-action="Index" asp-controller="Products">Voltar</a>
