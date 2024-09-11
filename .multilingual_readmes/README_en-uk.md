@@ -2,7 +2,7 @@
 
 - [Translations](#translations)
 - [About](#about)
-- [Instalation](#instalation)
+- [Installation](#installation)
 - [References](#references)
 - [Terms of use](#terms-of-use)
 
@@ -23,7 +23,7 @@ This application uses the language <strong>[C#](https://dotnet.microsoft.com/pt-
 
 <br>
 
-## Instalation:
+## Installation:
 
 <h3>0. It is first necessary to have instaled the following devices:</h3>
 
