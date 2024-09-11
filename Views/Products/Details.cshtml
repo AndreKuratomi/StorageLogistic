@@ -32,7 +32,7 @@ else
 
 <h3>Last Stock Update</h3>
 
-@if (Model.LastUpdate != null)
+@if (Model?.LastUpdate != null)
 {
     <p>
         <strong>Previous Amount:</strong> @Model.LastUpdate.PreviousAmount <br />
