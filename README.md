@@ -82,7 +82,7 @@ dotnet restore
 <h3>3. E executar o projeto:</h3>
 
 ```
-dotnet run
+dotnet watch run
 ```
 
 <br>
