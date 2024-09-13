@@ -21,6 +21,8 @@
 
 This application uses the language <strong>[C#](https://dotnet.microsoft.com/pt-br/download/)</strong>, its framework <strong>[dotnet](https://dotnet.microsoft.com/pt-br/download/)</strong> and the database <strong>[SQLite3](https://docs.python.org/3/library/sqlite3.html)</strong>.</p>
 
+Este projeto foi originalmente desenvolvido no SO Linux Ubuntu 22.04.
+
 <br>
 
 ## Installation:
