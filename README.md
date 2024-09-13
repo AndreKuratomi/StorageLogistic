@@ -1,42 +1,41 @@
 # StorageLogistic
 
-- [Traduções](#traduções)
-- [Sobre](#sobre)
-- [Instalação](#instalação)
-- [Referências](#referências)
-- [Termos de uso](#termos-de-uso)
+- [Translations](#translations)
+- [About](#about)
+- [Installation](#installation)
+- [References](#references)
+- [Terms of use](#terms-of-use)
 
 <br>
 
-## Traduções
+## Translations
 
-- [English / Inglês](./.multilingual_readmes/README_en-uk.md)
-- [Português brasileiro / Brazilian portuguese](https://github.com/AndreKuratomi/StorageLogistic/)
-
-<br>
-
-## Sobre
-
-<p>A aplicação <b>StorageLogistic</b> se propõe a ser uma base simples de controle de estoque de produtos, possibulitando cadastro, manipulação e geração de relatórios em PDF. Esta aplicação utiliza o padrão <b>MVC</b>.
-
-Esta aplicação utiliza a linguagem <strong>[C#](https://dotnet.microsoft.com/pt-br/download/)</strong>, seu framework <strong>[dotnet](https://dotnet.microsoft.com/pt-br/download/)</strong> e o banco de dados <strong>[SQLite3](https://docs.python.org/3/library/sqlite3.html)</strong>.</p>
+- [Português brasileiro / Brazilian portuguese](./README_pt-br.md)
+- [English](https://github.com/AndreKuratomi/StorageLogistic)
 
 <br>
 
-## Instalação
+## About
 
+<p>The application <b>StorageLogistic</b> is purposed to be a simple products storage base, with products register, manipulation and creation of PDF reports. This application uses the <b>MVC</b> pattern.
 
-<h3>0. Primeiramente, é necessário já ter instalado na própria máquina:</h3>
-
-- O versionador de codigo <b>[Git](https://git-scm.com/downloads)</b>.
-
-- A linguagem de programação <b>[C#](https://dotnet.microsoft.com/pt-br/download/)</b>.
-
-- O <b>editor de código</b>, conhecido também como <b>IDE</b>, <b>[Visual Studio Code (VSCode)](https://code.visualstudio.com/)</b>.
+This application uses the language <strong>[C#](https://dotnet.microsoft.com/pt-br/download/)</strong>, its framework <strong>[dotnet](https://dotnet.microsoft.com/pt-br/download/)</strong> and the database <strong>[SQLite3](https://docs.python.org/3/library/sqlite3.html)</strong>.</p>
 
 <br>
 
-<h3>1. Fazer o clone do reposítório <b>StorageLogistic</b> na sua máquina pelo terminal do computador ou pelo do IDE:</h3>
+## Installation:
+
+<h3>0. It is first necessary to have instaled the following devices:</h3>
+
+- The code versioning <b>[Git](https://git-scm.com/downloads)</b>.
+
+- A <b>code editor</b>, also known as <b>IDE</b>, <strong>[Visual Studio Code (VSCode)](https://code.visualstudio.com/)</strong>.
+
+- The programming language <strong>[C#](https://dotnet.microsoft.com/pt-br/download/)</strong>.
+
+<br>
+
+<h3>1. Clone the repository <b>StorageLogistic</b> by your machine terminal or by the IDE's:</h3>
 
 ```
 git clone https://github.com/AndreKuratomi/StorageLogistic.git
@@ -44,42 +43,39 @@ git clone https://github.com/AndreKuratomi/StorageLogistic.git
 
 WINDOWS:
 
-Obs: Caso apareca algum erro semelhante a este: 
+Obs: In case of any error message similar to this one: 
 
 ```
-unable to access 'https://github.com/AndreKuratomi/StorageLogistic.git': SSL certificate problem: self-signed certificate in certificate chain
+unable to access 'https://github.com/AndreKuratomi/StorageLogistic.git/': SSL certificate problem: self-signed certificate in certificate chain
 ```
 
-Configure o git para desabilitar a certificação SSL:
+Configure git to disable SSL certification:
 
 ```
 git config --global http.sslVerify "false"
 ```
 
-
-<p>Entrar na pasta criada:</p>
+<p>Enter the directory:</p>
 
 ```
 cd StorageLogistic
 ```
 <br>
 
-
-<h3>2. Abrir a aplicação no IDE:</h3>
+<h3>2. Open the aplication with your IDE:</h3>
 
 ```
 code .
 ```
+<br>
 
-<h4>Instalar suas dependências:</h4>
+<h4>Install its dependencies:</h4>
 
 ```
 dotnet restore
 ```
 
-<br>
-
-<h3>3. E executar o projeto:</h3>
+<h3>3. And run the application:</h3>
 
 ```
 dotnet watch run
@@ -87,7 +83,7 @@ dotnet watch run
 
 <br>
 
-## Referências
+## References
 
 - [C#](https://dotnet.microsoft.com/pt-br/download/)
 - [Git](https://git-scm.com/downloads)
@@ -96,6 +92,6 @@ dotnet watch run
 
 <br>
 
-## Termos de uso
+## Terms of use
 
-Esse projeto atende a fins exclusivamente didáticos e sem nenhum intuito comercial.
+This project is exclusively for didatic purposes and has no commercial intent.
