@@ -17,7 +17,7 @@
 
 ## About
 
-<p>The application <b>StorageLogistic</b> is purposed to be a simple products storage base, with products register, manipulation and creation of PDF reports. This application uses the <b>MVC</b> pattern.
+<p>The application <b>StorageLogistic</b> is purposed to be a simple products storage prototype, with products register, manipulation and creation of PDF reports. This application uses the <b>MVC</b> pattern.
 
 This application uses the language <strong>[C#](https://dotnet.microsoft.com/pt-br/download/)</strong>, its framework <strong>[dotnet](https://dotnet.microsoft.com/pt-br/download/)</strong> and the database <strong>[SQLite3](https://docs.python.org/3/library/sqlite3.html)</strong>.</p>
 
